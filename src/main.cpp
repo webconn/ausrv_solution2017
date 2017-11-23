@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "reader.h"
+#include "analyzer.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,8 +12,19 @@ int main(int argc, char *argv[])
 
         auto lst = readTasks(argv[1]);
 
-        for (auto task : lst) {
-                std::cout << task << std::endl;
+        // debugging output
+        /* for (auto task : lst) { */
+                /* std::cout << task << std::endl; */
+        /* } */
+
+        // check schedulability
+        auto badTask = checkSchedulability(lst);
+        if (!badTask) {
+                std::cout << "YES" << std::endl;
+                return 0;
+        } else {
+                std::cout << "NO" << std::endl << badTask->name << std::endl;
+                return 1;
         }
 
         return 0;

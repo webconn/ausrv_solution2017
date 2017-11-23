@@ -30,10 +30,10 @@ static Task readTaskFromElement(XMLElement *elem)
         return t;
 }
 
-list<Task> readTasks(const char *filename)
+TaskList readTasks(const char *filename)
 {
         XMLDocument xml;
-        list<Task> tasks;
+        TaskList tasks;
 
         xml.LoadFile(filename);
 

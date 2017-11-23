@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <list>
 #include <ostream>
 
 // \brief Task description structure
@@ -12,5 +13,7 @@ public:
         int deadline;
         int duration;
 };
+
+typedef std::list<Task> TaskList;
 
 std::ostream& operator<<(std::ostream& o, const Task& t);
